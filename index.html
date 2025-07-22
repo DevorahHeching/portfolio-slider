@@ -1,0 +1,190 @@
+<!-- index.html (Place this in a GitHub repository root or /docs folder for GitHub Pages) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>3D Portfolio Hover Slider</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #fff;
+      font-family: 'Arial', sans-serif;
+    }
+    .container {
+      position: relative;
+      width: 1160px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      transform-style: preserve-3d;
+      perspective: 1000px;
+      margin: auto;
+    }
+    .box {
+      position: relative;
+      width: 275px;
+      height: 275px;
+      background: #000;
+      transition: 0.5s;
+      transform-style: preserve-3d;
+      overflow: hidden;
+      margin-right: 15px;
+      margin-top: 45px;
+    }
+    .container:hover .box {
+      transform: rotateY(25deg);
+    }
+    .box:hover ~ .box {
+      transform: rotateY(-25deg);
+    }
+    .box:hover {
+      transform: rotateY(0deg) scale(1.25);
+      z-index: 1;
+      box-shadow: 0 25px 40px rgba(0,0,0,0.5);
+    }
+    .imgBx {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .imgBx::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, #f00, #000);
+      z-index: 1;
+      opacity: 0;
+      transition: 0.5s;
+      mix-blend-mode: multiply;
+    }
+    .box:hover .imgBx::before {
+      opacity: 1;
+    }
+    .imgBx img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .content {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+      display: flex;
+      padding: 20px;
+      align-items: flex-end;
+      box-sizing: border-box;
+      pointer-events: none;
+    }
+    .content h2 {
+      color: #fff;
+      transition: 0.5s;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+      font-size: 20px;
+      transform: translateY(200px);
+      transition-delay: 0.3s;
+    }
+    .box:hover .content h2 {
+      transform: translateY(0px);
+    }
+    .content p {
+      color: #fff;
+      transition: 0.5s;
+      font-size: 14px;
+      transform: translateY(200px);
+      transition-delay: 0.4s;
+    }
+    .box:hover .content p {
+      transform: translateY(0px);
+    }
+    @media (max-width: 768px) {
+      .container {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+      }
+      .box {
+        margin: 20px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="box">
+      <div class="imgBx">
+        <img src="https://static.wixstatic.com/media/575764_b87004495e1740d390cd69b8e2ed6ec2~mv2.png" alt="Sundance Film Festival">
+      </div>
+      <div class="content">
+        <div>
+          <h2>Sundance Film Festival</h2>
+          <p>Content Showcase</p>
+        </div>
+      </div>
+    </div>
+    <div class="box">
+      <div class="imgBx">
+        <img src="https://static.wixstatic.com/media/575764_8efad02ba8fa44b8ab36b0760c306c7a~mv2.png" alt="Portfolio Keyword Opportunities">
+      </div>
+      <div class="content">
+        <div>
+          <h2>Keyword Opportunities</h2>
+          <p>Portfolio Research</p>
+        </div>
+      </div>
+    </div>
+    <div class="box">
+      <div class="imgBx">
+        <img src="https://static.wixstatic.com/media/575764_bcaa517df8d041cf9d89cfd9911e9464~mv2.jpg" alt="Shudder TV">
+      </div>
+      <div class="content">
+        <div>
+          <h2>Shudder TV</h2>
+          <p>Streaming Campaign</p>
+        </div>
+      </div>
+    </div>
+    <div class="box">
+      <div class="imgBx">
+        <img src="https://static.wixstatic.com/media/575764_f5a4e5fe4cd340e4a25f4f7848c8cee9~mv2.png" alt="Google Ads Optimization">
+      </div>
+      <div class="content">
+        <div>
+          <h2>Google Ads</h2>
+          <p>Optimization Strategy</p>
+        </div>
+      </div>
+    </div>
+    <div class="box">
+      <div class="imgBx">
+        <img src="https://static.wixstatic.com/media/575764_1ac2c4293d3d48f99c1296d58b1e3b5f~mv2.jpg" alt="Google Search Console">
+      </div>
+      <div class="content">
+        <div>
+          <h2>Search Console</h2>
+          <p>Performance Metrics</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
